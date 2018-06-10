@@ -1,0 +1,10 @@
+{
+  "name": "cc-testing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Vattanan <vattanan.bu@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^23.1.0"
+  }
+}
