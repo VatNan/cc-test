@@ -12,11 +12,13 @@ describe('Person class', () => {
 
   it('Can create new instance from Person', () => {
     const person = new Person(defaultParamsPerson.name, defaultParamsPerson.friends); 
+    // expect actual
     expect(person).toBeInstanceOf(Person);
   });
 
   it('when sent name not correct to Person must throw error', () => {
     const { friends } = defaultParamsPerson;
+    // expect actual
     // name is undefined
     expect(() => {
       new Person(undefined, friends);
@@ -37,6 +39,7 @@ describe('Person class', () => {
 
   it('when not sent friends to Person, person instance must have friends = []', () => {
     const person = new Person(defaultParamsPerson.name);
+    // expect actual
     expect(person.friends).toBeDefined();
     expect(Array.isArray(person.friends)).toBeTruthy();
     expect(person.friends).toHaveLength(0);
@@ -44,6 +47,7 @@ describe('Person class', () => {
 
   it('when sent friends not array to Person must throw error', () => {
     const person = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
+    // expect actual
     // friends is number
     expect(() => {
       new Person(defaultParamsPerson.name, 5);
@@ -70,6 +74,7 @@ describe('Person class', () => {
     const person1 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
     const person2 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
 
+    // expect actual
     // all friends element is string
     expect(() => {
       new Person(defaultParamsPerson.name, ['penson1', 'penson2', 'penson3']);
@@ -105,6 +110,7 @@ describe('Person class', () => {
 
   it('Person instance can set name and friends', () => {
     const person = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
+    // expect actual
     // name
     expect(person.name).toBeDefined();
     expect(typeof person.name).toBe('string');
@@ -114,6 +120,7 @@ describe('Person class', () => {
   });
 
   it('Person must have current max id and it\'s integer', () => {
+    // expect actual
     expect(Person.currentMaxID).toBeDefined();
     expect(Number.isInteger(Person.currentMaxID)).toBeTruthy();
   });
@@ -130,6 +137,7 @@ describe('Person class', () => {
 
   it('Person instance must have id, id must be integer', () => {
     const person = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
+    // expect actual
     expect(person.id).toBeDefined();
     expect(Number.isInteger(person.id)).toBeDefined();
   });
@@ -150,6 +158,7 @@ describe('Person class', () => {
     const person1 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
     const person2 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
     const person3 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
+    // expect actual
     expect(person1.id).not.toBe(person2.id);
     expect(person1.id).not.toBe(person3.id);
     expect(person2.id).not.toBe(person3.id);
