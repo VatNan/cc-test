@@ -12,7 +12,7 @@
     "jest": "^23.1.0"
   },
   "scripts": {
-    "test": "jest",
-    "test:programming": "jest ./programming/"
+    "test": "jest --watch",
+    "test:programming": "jest --watch ./programming/"
   }
 }
