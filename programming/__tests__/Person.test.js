@@ -240,4 +240,16 @@ describe('Person class', () => {
       person1.addFriends([person2, null]);
     }).toThrowError('addFriends must send argument is array and each element is instance of Person');
   });
+
+  // it('call getFriendsOfFriends method in Person instance must return friends of friends', () => {
+  //   const personA = new Person('A', []);
+  //   const personB = new Person('B', []);
+  //   const personC = new Person('C', []);
+  //   const personD = new Person('D', []);
+  //   // expect actual
+  //   // personA.addFriends([personB, personD]);
+  //   // personA.addFriends([personB, personD]);
+  //   // personA.addFriends([personB, personD]);
+  //   // personA.addFriends([personB, personD]);
+  // });
 });
