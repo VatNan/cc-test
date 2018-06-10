@@ -23,8 +23,16 @@ class Person {
     // TODO
   }
 
-  getFriends() {
-    return this.friends.map(friend => friend.name);
+  getFriends({ all = false } = {}) {
+    return (all)
+      ? this.friends
+        .map(friend => ({
+          id: friend.id,
+          name: friend.name,
+          friends: friend.friends,
+        }))
+      : this.friends
+        .map(friend => friend.name);
   }
 }
 
