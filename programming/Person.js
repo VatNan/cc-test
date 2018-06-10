@@ -21,6 +21,14 @@ class Person {
     this.name = name;
     this.friends = friends;
   }
+
+  getFriendsOfFriends() {
+    // TODO
+  }
+
+  getFriends() {
+    // TODO
+  }
 }
 
 Person.currentMaxID = initialCurrentID;
