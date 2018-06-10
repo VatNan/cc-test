@@ -36,12 +36,18 @@ describe('Person class', () => {
   });
 
   it('when not sent fiendes to Person, person instance must have fiendes = []', () => {
-    const { name } = paramsPerson;
-    const person = new Person(name);
+    const person = new Person(paramsPerson.name);
     expect(person.fiendes).toBeDefined();
     expect(Array.isArray(person.fiendes)).toBeTruthy();
-    expect(person.fiendes).toHaveLength();
+    expect(person.fiendes).toHaveLength(0);
   });
+
+  it('when sent name and fiendes to Person, person instance must have name and fiendes is by parameter', () => {
+    const { name, fiendes } = paramsPerson;
+    const person = new Person(name, fiendes);
+    expect(person.name).toBe(name);
+    expect(person.fiendes).toEqual(fiendes);
+  });  
 
   it('Person instance can set name and fiendes', () => {
     const person = new Person(paramsPerson.name, paramsPerson.fiendes);
