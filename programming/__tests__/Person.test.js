@@ -169,12 +169,8 @@ describe('Person class', () => {
     const person1 = new Person(p1.name, p1.friends);
     const p2 = { name: 'Person2', friends: [person1] };
     const person2 = new Person(p2.name, p2.friends);
-    const p3 = { name: 'Person3', friends: [person1, person2] }; 
-    const person3 = new Person(p3.name, p3.friends);
     // expect actual
-    expect(person1.getFriends()).toEqual([]);
     expect(person2.getFriends()).toEqual([p1.name]);
-    expect(person3.getFriends()).toEqual([p1.name, p2.name]);
   });
 
   it('getFriends method can get all member when pass parameter options "allField" is true', () => {
@@ -182,19 +178,10 @@ describe('Person class', () => {
     const person1 = new Person(p1.name, p1.friends);
     const p2 = { name: 'Person2', friends: [person1] };
     const person2 = new Person(p2.name, p2.friends);
-    const p3 = { name: 'Person3', friends: [person1, person2] }; 
-    const person3 = new Person(p3.name, p3.friends);
     // expect actual
-    expect(person1.getFriends({ allField: true }))
-      .toEqual([]);
     expect(person2.getFriends({ allField: true }))
       .toEqual([
         { id: person1.id, name: person1.name, friends: person1.friends },
-      ]);
-    expect(person3.getFriends({ allField: true }))
-      .toEqual([
-        { id: person1.id, name: person1.name, friends: person1.friends },
-        { id: person2.id, name: person2.name, friends: person2.friends },
       ]);
   });
 
@@ -250,15 +237,15 @@ describe('Person class', () => {
     }).toThrowError('addFriends must send argument is array and each element is instance of Person');
   });
 
-  // it('call getFriendsOfFriends method in Person instance must return friends of friends', () => {
-  //   const personA = new Person('A', []);
-  //   const personB = new Person('B', []);
-  //   const personC = new Person('C', []);
-  //   const personD = new Person('D', []);
-  //   // expect actual
-  //   // personA.addFriends([personB, personD]);
-  //   // personA.addFriends([personB, personD]);
-  //   // personA.addFriends([personB, personD]);
-  //   // personA.addFriends([personB, personD]);
-  // });
+  it('call getFriendsOfFriends method in Person instance must return friends of friends', () => {
+    const personA = new Person('A', []);
+    const personB = new Person('B', []);
+    const personC = new Person('C', []);
+    const personD = new Person('D', []);
+    // expect actual
+    personA.addFriends([personB, personD]);
+    personB.addFriends([personC, personD]);
+    // expect actual
+    expect(personA.getFriendsOfFriends()).toEqual([personC.name]);
+  });
 });

@@ -17,6 +17,10 @@ class Person {
     this.id = Person.currentMaxID;
     this.name = name;
     this.friends = friends;
+    // add me to friends
+    this.friends.map(friend => {
+      friend.addFriends([this]);
+    });
   }
 
   getFriendsOfFriends() {
@@ -42,7 +46,18 @@ class Person {
     if (!newFriends.every(newFriend => newFriend instanceof Person)) {
       throw new Error('addFriends must send argument is array and each element is instance of Person');
     }
-    this.friends = [...this.friends, ...newFriends];
+    // validate dupicate newFriends
+    const newFriendNotDuplicate = newFriends.filter(newFriend => !this.friends.some(friend =>  friend.id === newFriend.id));
+    if (newFriendNotDuplicate.length === 0) {
+      return;
+    }
+
+    this.friends = [...this.friends, ...newFriendNotDuplicate];
+
+    // add me to friends
+    newFriendNotDuplicate.map(newFriend => {
+      newFriend.addFriends([this]);
+    });
   }
 }
 
