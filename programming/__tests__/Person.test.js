@@ -86,9 +86,21 @@ describe('Person class', () => {
 
   it('when sent name and friends to Person, person instance must have name and friends is by parameter', () => {
     const { name, friends } = defaultParamsPerson;
-    const person = new Person(name, friends);
-    expect(person.name).toBe(name);
-    expect(person.friends).toEqual(friends);
+    // default param
+    const person1 = new Person(name, friends); 
+    expect(person1.name).toBe(name);
+    expect(person1.friends).toEqual(friends);
+    // custom param
+    const customParamPerson = {
+      name: 'Custom name naja',
+      friends: [
+        new Person(name, friends),
+        new Person(name, friends),
+      ],
+    };
+    const person4 = new Person(customParamPerson.name, customParamPerson.friends);
+    expect(person4.name).toBe(customParamPerson.name);
+    expect(person4.friends).toEqual(customParamPerson.friends);
   });  
 
   it('Person instance can set name and friends', () => {
