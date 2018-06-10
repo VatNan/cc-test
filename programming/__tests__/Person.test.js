@@ -42,4 +42,13 @@ describe('Person class', () => {
     const person3 = new Person();
     expect(person3.id).toBe(Person.currentMaxID);
   });
+
+  it('id each of Person instance must unique', () => {
+    const person1 = new Person();
+    const person2 = new Person();
+    const person3 = new Person();
+    expect(person1.id).not.toBe(person2.id);
+    expect(person1.id).not.toBe(person3.id);
+    expect(person2.id).not.toBe(person3.id);
+  });
 });
