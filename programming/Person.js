@@ -36,6 +36,12 @@ class Person {
   }
 
   addFriends(newFriends) {
+    if (!Array.isArray(newFriends) || newFriends.length === 0) {
+      throw new Error('addFriends must send 1 argument is array and must empty array');
+    }
+    if (!newFriends.every(newFriend => newFriend instanceof Person)) {
+      throw new Error('addFriends must send argument is array and each element is instance of Person');
+    }
     this.friends = [...this.friends, ...newFriends];
   }
 }

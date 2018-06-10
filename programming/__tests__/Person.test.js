@@ -205,4 +205,39 @@ describe('Person class', () => {
     person1.addFriends(newFriends);
     expect(person1.friends).toEqual([...defaultParamsPerson.friends, ...newFriends]);
   });
+
+  it('call addFriends in person instance but send addFriends() not correct must throw error', () => {
+    const person1 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
+    const person2 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
+    // expect actual
+    // not send newFriends
+    expect(() => {
+      person1.addFriends();
+    }).toThrowError('addFriends must send 1 argument is array and must empty array');
+    // send newFriends is number
+    expect(() => {
+      person1.addFriends(1);
+    }).toThrowError('addFriends must send 1 argument is array and must empty array');
+    // send newFriends is string
+    expect(() => {
+      person1.addFriends('Noname');
+    }).toThrowError('addFriends must send 1 argument is array and must empty array');
+    // send newFriends is string
+    expect(() => {
+      person1.addFriends([]);
+    }).toThrowError('addFriends must send 1 argument is array and must empty array');
+    
+    // send all element of newFriends is string 
+    expect(() => {
+      person1.addFriends(['Noname1', 'Noname1']);
+    }).toThrowError('addFriends must send argument is array and each element is instance of Person');
+    // send some element of newFriends is string 
+    expect(() => {
+      person1.addFriends([person2, 'Noname1']);
+    }).toThrowError('addFriends must send argument is array and each element is instance of Person');
+    // send some element of newFriends is null 
+    expect(() => {
+      person1.addFriends([person2, null]);
+    }).toThrowError('addFriends must send argument is array and each element is instance of Person');
+  });
 });
