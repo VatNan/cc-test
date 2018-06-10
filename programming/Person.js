@@ -6,6 +6,10 @@ class Person {
       throw new Error('name not correct format');
     }
 
+    if (!Array.isArray(friends)) {
+      throw new Error('friends must be array');
+    }
+
     if (friends.length > 0 && !friends.every(friend => friend instanceof Person)) {
       throw new Error('element of friends must be instance of Person');
     }
