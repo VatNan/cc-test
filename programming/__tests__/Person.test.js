@@ -17,11 +17,9 @@ describe('Person class', () => {
 
   it('current max id start at initialtMaxID and must increase when new instance n + 1', () => {
     expect(Person.currentMaxID).toBe(initialtCurrentID);
-
     // person 1
     new Person();
     expect(Person.currentMaxID).toBe(initialtCurrentID + 1);
-
     // person 2
     new Person();
     expect(Person.currentMaxID).toBe(initialtCurrentID + 2);
@@ -37,11 +35,9 @@ describe('Person class', () => {
     // person 1
     const person1 = new Person();
     expect(person1.id).toBe(Person.currentMaxID);
-    
     // person 2
     const person2 = new Person();
     expect(person2.id).toBe(Person.currentMaxID);
-
     // person 3
     const person3 = new Person();
     expect(person3.id).toBe(Person.currentMaxID);
