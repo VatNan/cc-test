@@ -1,4 +1,4 @@
-const initialtCurrentID = 0;
+const initialCurrentID = 0;
 class Person {
   constructor() {
     Person.currentMaxID = Person.currentMaxID + 1;
@@ -8,9 +8,9 @@ class Person {
   }
 }
 
-Person.currentMaxID = initialtCurrentID;
+Person.currentMaxID = initialCurrentID;
 
 export default Person;
 export {
-  initialtCurrentID,
+  initialCurrentID,
 };

@@ -1,8 +1,8 @@
-import Person, { initialtCurrentID } from '../Person';
+import Person, { initialCurrentID } from '../Person';
 
 describe('Person class', () => {
   beforeEach(() => {
-    Person.currentMaxID = initialtCurrentID;
+    Person.currentMaxID = initialCurrentID;
   });
 
   it('Can create new instance from Person', () => {
@@ -16,13 +16,13 @@ describe('Person class', () => {
   });
 
   it('current max id start at initialtMaxID and must increase when new instance n + 1', () => {
-    expect(Person.currentMaxID).toBe(initialtCurrentID);
+    expect(Person.currentMaxID).toBe(initialCurrentID);
     // person 1
     new Person();
-    expect(Person.currentMaxID).toBe(initialtCurrentID + 1);
+    expect(Person.currentMaxID).toBe(initialCurrentID + 1);
     // person 2
     new Person();
-    expect(Person.currentMaxID).toBe(initialtCurrentID + 2);
+    expect(Person.currentMaxID).toBe(initialCurrentID + 2);
   });
 
   it('Person instance must have id, id must be integer', () => {
