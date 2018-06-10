@@ -1,6 +1,6 @@
 class Person {
   constructor() {
-    this.id = 1;
+    this.id = Person.maxID;
   }
 }
 
