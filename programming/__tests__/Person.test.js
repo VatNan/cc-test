@@ -229,7 +229,7 @@ describe('Person class', () => {
     
     // send all element of newFriends is string 
     expect(() => {
-      person1.addFriends(['Noname1', 'Noname1']);
+      person1.addFriends(['Noname1', 'Noname2']);
     }).toThrowError('addFriends must send argument is array and each element is instance of Person');
     // send some element of newFriends is string 
     expect(() => {
