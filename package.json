@@ -5,6 +5,14 @@
   "author": "Vattanan <vattanan.bu@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "jest": "^23.1.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:programming": "jest ./programming/"
   }
 }
