@@ -35,8 +35,8 @@ class Person {
         .map(friend => friend.name);
   }
 
-  addFriends() {
-    
+  addFriends(newFriends) {
+    this.friends = [...this.friends, ...newFriends];
   }
 }
 
