@@ -29,7 +29,7 @@ describe('Person class', () => {
     expect(() => {
       new Person(63, fiendes);
     }).toThrowError('name not correct format');
-    // name is number
+    // name is space
     expect(() => {
       new Person('            ', fiendes)
     }).toThrowError('name not correct format');
