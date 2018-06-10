@@ -197,4 +197,11 @@ describe('Person class', () => {
         { id: person2.id, name: person2.name, friends: person2.friends },
       ]);
   });
+
+  it('call addFriends in person instance must add new friends', () => {
+    const person1 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
+    const person2 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
+    person1.addFriends([person2]);
+    expect(person2.friends).toEqual([...defaultParamsPerson.friends, person2]);
+  });
 });

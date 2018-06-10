@@ -34,6 +34,10 @@ class Person {
       : this.friends
         .map(friend => friend.name);
   }
+
+  addFriends() {
+    
+  }
 }
 
 Person.currentMaxID = initialCurrentID;
