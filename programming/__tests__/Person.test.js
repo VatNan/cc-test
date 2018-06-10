@@ -154,4 +154,17 @@ describe('Person class', () => {
     expect(person1.id).not.toBe(person3.id);
     expect(person2.id).not.toBe(person3.id);
   });
+
+  it('Person instance must can get friends by getFriends method', () => {
+    const p1 = { name: 'Person1', friends: [] };
+    const person1 = new Person(p1.name, p1.friends);
+    const p2 = { name: 'Person2', friends: [person1] };
+    const person2 = new Person(p2.name, p2.friends);
+    const p3 = { name: 'Person3', friends: [person1, person2] }; 
+    const person3 = new Person(p3.name, p3.friends);
+    // expect actual
+    expect(person1.getFriends()).toEqual([]);person1;
+    expect(person2.getFriends()).toEqual([p1.name]);person1;
+    expect(person3.getFriends()).toEqual([p1.name, p2.name]);person1;
+  });
 });
