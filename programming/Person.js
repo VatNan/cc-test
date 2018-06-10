@@ -1,5 +1,7 @@
 const initialCurrentID = 0;
 class Person {
+  static currentMaxID = initialCurrentID;
+
   constructor(name, friends = []) {
     // validation name parameter
     if (!name || typeof name !== 'string' || name.trim() === '') {
@@ -23,11 +25,11 @@ class Person {
     });
   }
 
-  getFriendsOfFriends() {
+  getFriendsOfFriends = () => {
     // TODO
   }
 
-  getFriends({ allField = false } = {}) {
+  getFriends = ({ allField = false } = {}) => {
     return (allField)
       ? this.friends
         .map(friend => ({
@@ -39,7 +41,7 @@ class Person {
         .map(friend => friend.name);
   }
 
-  addFriends(newFriends) {
+  addFriends = (newFriends) => {
     if (!Array.isArray(newFriends) || newFriends.length === 0) {
       throw new Error('addFriends must send 1 argument is array and must empty array');
     }
@@ -60,8 +62,6 @@ class Person {
     });
   }
 }
-
-Person.currentMaxID = initialCurrentID;
 
 export default Person;
 export {
