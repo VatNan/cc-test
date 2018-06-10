@@ -47,23 +47,23 @@ describe('Person class', () => {
     // friends is number
     expect(() => {
       new Person(defaultParamsPerson.name, 5);
-    }).toThrowError('friends must be Array');
+    }).toThrowError('friends must be array');
     // friends is object
     expect(() => {
       new Person(defaultParamsPerson.name, {});
-    }).toThrowError('friends must be Array');
+    }).toThrowError('friends must be array');
     // friends is string
     expect(() => {
       new Person(defaultParamsPerson.name, 'person1');
-    }).toThrowError('friends must be Array');
+    }).toThrowError('friends must be array');
     // friends is instance of Person
     expect(() => {
       new Person(defaultParamsPerson.name, person);
-    }).toThrowError('friends must be Array');
+    }).toThrowError('friends must be array');
     // friends is null
     expect(() => {
       new Person(defaultParamsPerson.name, null);
-    }).toThrowError('friends must be Array');
+    }).toThrowError('friends must be array');
   });
 
   it('if friends elements is not instance of Person, then Person must throw error', () => {    
