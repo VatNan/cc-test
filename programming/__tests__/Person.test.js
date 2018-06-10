@@ -43,8 +43,20 @@ describe('Person class', () => {
   });
 
   it('if friends elements is not instance of Person, then Person must throw error', () => {    
+    const person1 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
+    const person2 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
+
+    // all friends element is string
     expect(() => {
       new Person(defaultParamsPerson.name, ['penson1', 'penson2', 'penson3']);
+    }).toThrowError('element of friends must be instance of Person');
+    // some friends element is string
+    expect(() => {
+      new Person(defaultParamsPerson.name, [person1, person2, 'penson3']);
+    }).toThrowError('element of friends must be instance of Person');
+    // some friends element is null
+    expect(() => {
+      new Person(defaultParamsPerson.name, [person1, person2, null]);
     }).toThrowError('element of friends must be instance of Person');
   });
 
