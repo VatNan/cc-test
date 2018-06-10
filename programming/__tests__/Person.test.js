@@ -11,6 +11,20 @@ describe('Person class', () => {
     expect(Number.isInteger(Person.maxID)).toBeTruthy();
   });
 
+  it('max id start at 0 and must increase when new instance n + 1', () => {
+    const currentValue = 0;
+    expect(Person.maxID).toBe(currentValue);
+
+    // person 1
+    new Person();
+    expect(Person.maxID).toBe(currentValue + 1);
+
+    // person 2
+    new Person();
+    expect(Person.maxID).toBe(currentValue + 1);
+
+  });
+
   it('Person instance must have id, id must be integer', () => {
     const person = new Person();
     expect(person.id).toBeDefined();
