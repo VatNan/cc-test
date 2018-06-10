@@ -11,4 +11,10 @@ describe('Person class', () => {
     expect(Number.isInteger(Person.maxID)).toBeTruthy();
   });
 
+  it('Person instance must have id, id must be integer', () => {
+    const person = new Person();
+    expect(person.id).toBeDefined();
+    expect(Number.isInteger(person.id)).toBeDefined();
+  });
+
 });
