@@ -17,4 +17,17 @@ describe('Person class', () => {
     expect(Number.isInteger(person.id)).toBeDefined();
   });
 
+  it('id of Person must equal than current max id when genarate', () => {
+    // person 1
+    const person1 = new Person();
+    expect(person1.id).toBe(Person.maxID);
+    
+    // person 2
+    const person2 = new Person();
+    expect(person2.id).toBe(Person.maxID);
+
+    // person 3
+    const person3 = new Person();
+    expect(person3.id).toBe(Person.maxID);
+  });
 });
