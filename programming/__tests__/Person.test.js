@@ -19,20 +19,28 @@ describe('Person class', () => {
     const { fiendes } = paramsPerson;
     // name is undefined
     expect(() => {
-      new Person(undefined, fiendes)
+      new Person(undefined, fiendes);
     }).toThrowError('name not correct format');
     // name is ''
     expect(() => {
-      new Person('', fiendes)
+      new Person('', fiendes);
     }).toThrowError('name not correct format');
     // name is number
     expect(() => {
-      new Person(63, fiendes)
+      new Person(63, fiendes);
     }).toThrowError('name not correct format');
     // name is number
     expect(() => {
       new Person('            ', fiendes)
     }).toThrowError('name not correct format');
+  });
+
+  it('when not sent fiendes to Person, person instance must have fiendes = []', () => {
+    const { name } = paramsPerson;
+    const person = new Person(name);
+    expect(person.fiendes).toBeDefined();
+    expect(Array.isArray(person.fiendes)).toBeTruthy();
+    expect(person.fiendes).toHaveLength();
   });
 
   it('Person instance can set name and fiendes', () => {
