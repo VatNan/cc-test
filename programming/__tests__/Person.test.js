@@ -177,7 +177,7 @@ describe('Person class', () => {
     expect(person3.getFriends()).toEqual([p1.name, p2.name]);
   });
 
-  it('getFriends method can get all member when pass parameter options "all" is true', () => {
+  it('getFriends method can get all member when pass parameter options "allField" is true', () => {
     const p1 = { name: 'Person1', friends: [] };
     const person1 = new Person(p1.name, p1.friends);
     const p2 = { name: 'Person2', friends: [person1] };
@@ -185,13 +185,13 @@ describe('Person class', () => {
     const p3 = { name: 'Person3', friends: [person1, person2] }; 
     const person3 = new Person(p3.name, p3.friends);
     // expect actual
-    expect(person1.getFriends({ all: true }))
+    expect(person1.getFriends({ allField: true }))
       .toEqual([]);
-    expect(person2.getFriends({ all: true }))
+    expect(person2.getFriends({ allField: true }))
       .toEqual([
         { id: person1.id, name: person1.name, friends: person1.friends },
       ]);
-    expect(person3.getFriends({ all: true }))
+    expect(person3.getFriends({ allField: true }))
       .toEqual([
         { id: person1.id, name: person1.name, friends: person1.friends },
         { id: person2.id, name: person2.name, friends: person2.friends },

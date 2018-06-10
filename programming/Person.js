@@ -23,8 +23,8 @@ class Person {
     // TODO
   }
 
-  getFriends({ all = false } = {}) {
-    return (all)
+  getFriends({ allField = false } = {}) {
+    return (allField)
       ? this.friends
         .map(friend => ({
           id: friend.id,
