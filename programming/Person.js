@@ -24,7 +24,7 @@ class Person {
   }
 
   getFriends() {
-    // TODO
+    return this.friends.map(friend => friend.name);
   }
 }
 
