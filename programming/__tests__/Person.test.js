@@ -51,4 +51,14 @@ describe('Person class', () => {
     expect(person1.id).not.toBe(person3.id);
     expect(person2.id).not.toBe(person3.id);
   });
+
+  it('Person instance can set name and fiendes', () => {
+    const person = new Person();
+    // name
+    expect(person.name).toBeDefined();
+    expect(typeof person.name).toBe('string');
+    // fiendes
+    expect(person.fiendes).toBeDefined();
+    expect(Array.isArray(person.fiendes)).toBeTruthy();
+  })
 });
