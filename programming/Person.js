@@ -25,7 +25,7 @@ class Person {
     });
   }
 
-  getFriendsOfFriends = () => {
+  getFriendsOfFriends = ({ allField = false } = {}) => {
     if (this.friends.length === 0) {
       return [];
     }
@@ -43,21 +43,26 @@ class Person {
         if (this.id === fofs.id) {
           continue;
         }
-
         friendsLevel2 = {
           ...friendsLevel2,
           [fofs.id]: {
             name: fofs.name,
+            friends: fofs.friends,
           }
         };
         // end inner for
       }
     }
 
-
-    return Object.keys(friendsLevel2)
-      .map(keys => friendsLevel2[keys].name);
-  
+    return (allField)
+      ? Object.keys(friendsLevel2)
+        .map(keys => ({
+          id: Number(keys),
+          name: friendsLevel2[keys].name,
+          friends: friendsLevel2[keys].friends,
+        }))
+      : Object.keys(friendsLevel2)
+        .map(keys => friendsLevel2[keys].name);
   }
 
   getFriends = ({ allField = false } = {}) => {

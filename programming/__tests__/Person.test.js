@@ -259,8 +259,8 @@ describe('Person class', () => {
     personA.addFriends([personB, personD]);
     personB.addFriends([personC, personD]);
     // expect actual
-    expect(personA.getFriendsOfFriends()).toEqual([
-      { id: personC.id, name: personC.name, friends: personC.friends }
+    expect(personA.getFriendsOfFriends({ allField: true })).toEqual([
+      { id: personC.id, name: personC.name, friends: personC.friends },
     ]);
   });
 });
