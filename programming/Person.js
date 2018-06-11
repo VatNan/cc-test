@@ -7,14 +7,17 @@ class Person {
     if (!name || typeof name !== 'string' || name.trim() === '') {
       throw new Error('name not correct format');
     }
+
     // validation friends parameter
     if (!Array.isArray(friends)) {
       throw new Error('friends must be array');
     }
+
     // validation element in friends parameter
     if (friends.length > 0 && !friends.every(friend => friend instanceof Person)) {
       throw new Error('element of friends must be instance of Person');
     }
+
     Person.currentMaxID = Person.currentMaxID + 1;
     this.id = Person.currentMaxID;
     this.name = name;
@@ -39,10 +42,12 @@ class Person {
         if (this.friends.some(friend => friend.id === fofs.id)) {
           continue;
         }
+
         // delete with me
         if (this.id === fofs.id) {
           continue;
         }
+
         friendsLevel2 = {
           ...friendsLevel2,
           [fofs.id]: {
@@ -81,17 +86,20 @@ class Person {
     if (!Array.isArray(newFriends) || newFriends.length === 0) {
       throw new Error('addFriends must send 1 argument is array and must empty array');
     }
+
     if (!newFriends.every(newFriend => newFriend instanceof Person)) {
       throw new Error('addFriends must send argument is array and each element is instance of Person');
     }
+
     // validate dupicate newFriends
-    const newFriendNotDuplicate = newFriends.filter(newFriend => !this.friends.some(friend =>  friend.id === newFriend.id));
+    const newFriendNotDuplicate = newFriends
+      .filter(newFriend => !this.friends.some(friend =>  friend.id === newFriend.id))
+      .filter(newFriend => this.id !== newFriend.id);
     if (newFriendNotDuplicate.length === 0) {
       return;
     }
 
     this.friends = [...this.friends, ...newFriendNotDuplicate];
-
     // add me to friends
     newFriendNotDuplicate.map(newFriend => {
       newFriend.addFriends([this]);
