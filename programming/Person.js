@@ -26,7 +26,38 @@ class Person {
   }
 
   getFriendsOfFriends = () => {
-    // TODO
+    if (this.friends.length === 0) {
+      return [];
+    }
+ 
+    // get friends in level 2 
+    let friendsLevel2 = {};
+    for(let friend of this.friends) {
+      for(let fofs of friend.getFriends({ allField: true })) {
+        // start inner for
+        // delete with friends
+        if (this.friends.some(friend => friend.id === fofs.id)) {
+          continue;
+        }
+        // delete with me
+        if (this.id === fofs.id) {
+          continue;
+        }
+
+        friendsLevel2 = {
+          ...friendsLevel2,
+          [fofs.id]: {
+            name: fofs.name,
+          }
+        };
+        // end inner for
+      }
+    }
+
+
+    return Object.keys(friendsLevel2)
+      .map(keys => friendsLevel2[keys].name);
+  
   }
 
   getFriends = ({ allField = false } = {}) => {

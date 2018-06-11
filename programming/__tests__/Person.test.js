@@ -237,6 +237,7 @@ describe('Person class', () => {
     }).toThrowError('addFriends must send argument is array and each element is instance of Person');
   });
 
+  // Result of test
   it('call getFriendsOfFriends method in Person instance must return friends of friends', () => {
     const personA = new Person('A', []);
     const personB = new Person('B', []);
@@ -247,5 +248,19 @@ describe('Person class', () => {
     personB.addFriends([personC, personD]);
     // expect actual
     expect(personA.getFriendsOfFriends()).toEqual([personC.name]);
+  });
+
+  it('getFriendsOfFriends method can get all member when pass parameter options "allField" is true', () => {
+    const personA = new Person('A', []);
+    const personB = new Person('B', []);
+    const personC = new Person('C', []);
+    const personD = new Person('D', []);
+    // expect actual
+    personA.addFriends([personB, personD]);
+    personB.addFriends([personC, personD]);
+    // expect actual
+    expect(personA.getFriendsOfFriends()).toEqual([
+      { id: personC.id, name: personC.name, friends: personC.friends }
+    ]);
   });
 });
