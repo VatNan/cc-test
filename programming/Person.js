@@ -29,10 +29,6 @@ class Person {
   }
 
   getFriendsOfFriends = ({ allField = false } = {}) => {
-    if (this.friends.length === 0) {
-      return [];
-    }
- 
     // get friends in level 2 
     let friendsLevel2 = {};
     for(let friend of this.friends) {
@@ -84,7 +80,7 @@ class Person {
 
   addFriends = (newFriends) => {
     if (!Array.isArray(newFriends) || newFriends.length === 0) {
-      throw new Error('addFriends must send 1 argument is array and must empty array');
+      throw new Error('addFriends must send 1 argument is array and must not empty array');
     }
 
     if (!newFriends.every(newFriend => newFriend instanceof Person)) {

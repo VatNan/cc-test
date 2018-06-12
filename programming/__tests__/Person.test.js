@@ -209,19 +209,19 @@ describe('Person class', () => {
     // not send newFriends
     expect(() => {
       person1.addFriends();
-    }).toThrowError('addFriends must send 1 argument is array and must empty array');
+    }).toThrowError('addFriends must send 1 argument is array and must not empty array');
     // send newFriends is number
     expect(() => {
       person1.addFriends(1);
-    }).toThrowError('addFriends must send 1 argument is array and must empty array');
+    }).toThrowError('addFriends must send 1 argument is array and must not empty array');
     // send newFriends is string
     expect(() => {
       person1.addFriends('Noname');
-    }).toThrowError('addFriends must send 1 argument is array and must empty array');
+    }).toThrowError('addFriends must send 1 argument is array and must not empty array');
     // send newFriends is string
     expect(() => {
       person1.addFriends([]);
-    }).toThrowError('addFriends must send 1 argument is array and must empty array');
+    }).toThrowError('addFriends must send 1 argument is array and must not empty array');
     
     // send all element of newFriends is string 
     expect(() => {
@@ -243,6 +243,7 @@ describe('Person class', () => {
     const personB = new Person('B', []);
     const personC = new Person('C', []);
     const personD = new Person('D', []);
+    const personF = new Person('F', []);
     // expect actual
     personA.addFriends([personB, personD]);
     personB.addFriends([personC, personD]);
