@@ -93,6 +93,7 @@ describe('Person class', () => {
     const { name, friends } = defaultParamsPerson;
     // default param
     const person1 = new Person(name, friends); 
+    // expect actual
     expect(person1.name).toBe(name);
     expect(person1.friends).toEqual(friends);
     // custom param
@@ -104,6 +105,7 @@ describe('Person class', () => {
       ],
     };
     const person4 = new Person(customParamPerson.name, customParamPerson.friends);
+    // expect actual
     expect(person4.name).toBe(customParamPerson.name);
     expect(person4.friends).toEqual(customParamPerson.friends);
   });  
@@ -126,6 +128,7 @@ describe('Person class', () => {
   });
 
   it('current max id start at initialtMaxID and must increase when new instance n + 1', () => {
+    // expect actual
     expect(Person.currentMaxID).toBe(initialCurrentID);
     // person 1
     new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
@@ -143,6 +146,7 @@ describe('Person class', () => {
   });
 
   it('id of Person must equal than current current max id when genarate', () => {
+    // expect actual
     // person 1
     const person1 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
     expect(person1.id).toBe(Person.currentMaxID);
@@ -190,6 +194,7 @@ describe('Person class', () => {
     const person2 = new Person(defaultParamsPerson.name, defaultParamsPerson.friends);
     const newFriends = [person2];
     person1.addFriends(newFriends);
+    // expect actual
     expect(person1.friends).toEqual([...defaultParamsPerson.friends, ...newFriends]);
   });
 
@@ -199,6 +204,7 @@ describe('Person class', () => {
     const newFriends = [person2];
     const me = [person1];
     person1.addFriends(newFriends);
+    // expect actual
     expect(person2.friends).toEqual([...defaultParamsPerson.friends, ...me]);
   });
 
