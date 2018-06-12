@@ -244,7 +244,7 @@ describe('Person class', () => {
     const personC = new Person('C', []);
     const personD = new Person('D', []);
     const personF = new Person('F', []);
-    // expect actual
+    // add friends
     personA.addFriends([personB, personD]);
     personB.addFriends([personC, personD]);
     // expect actual
@@ -256,7 +256,7 @@ describe('Person class', () => {
     const personB = new Person('B', []);
     const personC = new Person('C', []);
     const personD = new Person('D', []);
-    // expect actual
+    // add friends
     personA.addFriends([personB, personD]);
     personB.addFriends([personC, personD]);
     // expect actual
