@@ -1,0 +1,25 @@
+version: '3.4'
+# Have
+# - postgres database
+# - admin for manage database
+# *** don't create service for Node.js
+services:
+  db:
+    image: postgres:10.3
+    container_name: db-codeitem
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: testnaja1234
+    ports:
+      - 5432:5432
+  admin:
+    image: adminer
+    container_name: admin-db-codeitem
+    restart: always
+    ports:
+      - 8000:8080
+    depends_on:
+     - db
+
+networks:
+  default:
