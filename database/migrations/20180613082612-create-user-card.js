@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       card_number: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       cvv: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       user_id: {
         type: Sequelize.INTEGER,
