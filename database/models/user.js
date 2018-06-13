@@ -1,11 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Todo = sequelize.define('Todo', {
-    name: Sequelize.STRING,
+  var User = sequelize.define('User', {
+    name: DataTypes.STRING,
     age: Sequelize.INTEGER,
   }, {});
-  Todo.associate = function(models) {
+  User.associate = function(models) {
     // associations can be defined here
   };
-  return Todo;
+  return User;
 };
