@@ -9,8 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       discount: {
-        type: Sequelize.DECIMAL,
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.DECIMAL
       },
       item_id: {
         type: Sequelize.INTEGER,
@@ -20,7 +20,7 @@ module.exports = {
           key: 'id',
           as: 'item_id'
         },
-        unique: 'Item_Codes_promotion_id',
+        unique: 'Item_Promotions_promotion_id'
       },
       promotion_id: {
         type: Sequelize.INTEGER,
@@ -30,7 +30,7 @@ module.exports = {
           key: 'id',
           as: 'promotion_id'
         },
-        unique: 'Item_Codes_promotion_item_id',
+        unique: 'Item_Promotions_item_id'
       },
       createdAt: {
         allowNull: false,

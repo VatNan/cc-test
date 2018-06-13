@@ -18,7 +18,7 @@ module.exports = {
         references: {
           model: 'Codes',
           key: 'id',
-          as: 'item_id'
+          as: 'code_id'
         },
         unique: 'Code_Bundles_bundle_id'
       },
@@ -28,7 +28,7 @@ module.exports = {
         references: {
           model: 'Bundles',
           key: 'id',
-          as: 'item_id'
+          as: 'bundle_id'
         },
         unique: 'Code_Bundles_code_id'
       },

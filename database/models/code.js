@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     Code.belongsToMany(models.Bundle, {
       through: {
-        model: models.Item_Bundle,
+        model: models.Code_Bundle,
         unique: false,
       },
       foreignKey: 'code_id',

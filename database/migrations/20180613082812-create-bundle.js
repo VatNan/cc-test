@@ -9,11 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING,
         allowNull: false,
+        type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
       },
       start_date_sale: {
         allowNull: false,
@@ -24,8 +24,8 @@ module.exports = {
         type: Sequelize.DATE
       },
       price: {
-        type: Sequelize.DECIMAL,
         allowNull: false,
+        type: Sequelize.DECIMAL
       },
       createdAt: {
         allowNull: false,

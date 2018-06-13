@@ -10,7 +10,7 @@ module.exports = {
       },
       amount: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       code_id: {
         type: Sequelize.INTEGER,

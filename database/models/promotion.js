@@ -7,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: DataTypes.STRING,
     start_date_active: {
+      type: DataTypes.DATE,
       allowNull: false,
-      type: DataTypes.DATE
     },
     end_date_active:  {
       type: DataTypes.DATE,

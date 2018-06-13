@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     code_id: {
       type: DataTypes.INTEGER,
-      unique: 'Code_Bundle_item_id',
+      unique: 'Code_Bundle_bundle_id',
     },
     bundle_id: {
       type: DataTypes.INTEGER,

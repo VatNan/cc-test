@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     item_id: {
       type: DataTypes.INTEGER,
-      unique: 'Item_Code_item_id',
+      unique: 'Item_Code_code_id',
     },
   }, {});
   Item_Code.associate = function(models) {
