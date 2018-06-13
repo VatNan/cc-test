@@ -9,7 +9,28 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       amount: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      item_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Items',
+          key: 'id',
+          as: 'item_id'
+        },
+        unique: 'Item_Bundles_bundle_id'
+      },
+      bundle_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Bundles',
+          key: 'id',
+          as: 'bundle_id'
+        },
+        unique: 'Item_Bundles_item_id'
       },
       createdAt: {
         allowNull: false,

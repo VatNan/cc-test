@@ -39,6 +39,15 @@ module.exports = (sequelize, DataTypes) => {
       constraints: false,
       onDelete: 'CASCADE',
     });
+    Item.belongsToMany(models.Bundle, {
+      through: {
+        model: models.Item_Bundle,
+        unique: false,
+      },
+      foreignKey: 'item_id',
+      constraints: false,
+      onDelete: 'CASCADE',
+    });
   };
   return Item;
 };
