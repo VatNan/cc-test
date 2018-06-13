@@ -49,7 +49,7 @@ class Person {
           [fofs.id]: {
             name: fofs.name,
             friends: fofs.friends,
-          }
+          },
         };
         // end inner for
       }
