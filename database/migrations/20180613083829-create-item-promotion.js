@@ -11,6 +11,26 @@ module.exports = {
       discount: {
         type: Sequelize.DECIMAL
       },
+      item_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Items',
+          key: 'id',
+          as: 'item_id'
+        },
+        unique: 'Item_Codes_promotion_id',
+      },
+      promotion_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Promotions',
+          key: 'id',
+          as: 'promotion_id'
+        },
+        unique: 'Item_Codes_promotion_item_id',
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -11,6 +11,18 @@ module.exports = {
       card_number: {
         type: Sequelize.STRING
       },
+      cvv: {
+        type: Sequelize.INTEGER
+      },
+      user_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Users',
+          key: 'id',
+          as: 'user_id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
